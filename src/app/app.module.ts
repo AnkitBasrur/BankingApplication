@@ -7,12 +7,14 @@ import { ShowaccountdetailsComponent } from './showaccountdetails/showaccountdet
 import {HttpClientModule} from '@angular/common/http';
 import { FormsModule } from '@angular/forms';
 import { RegisterComponent } from './register/register.component';
+import { LoginComponent } from './login/login.component';
 
 @NgModule({
   declarations: [
     AppComponent,
     ShowaccountdetailsComponent,
     RegisterComponent,
+    LoginComponent,
     
   ],
   imports: [

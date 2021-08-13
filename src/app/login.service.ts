@@ -1,19 +1,19 @@
 import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
-import { Register } from './register';
+import { Login } from './login';
 
 @Injectable({
   providedIn: 'root'
 })
-export class RegisterService {
+export class LoginService {
 
   constructor(private httpClient:HttpClient) { }
 
-  //for registration page
+  //for login page
   baseUrl:string="http://localhost:9890//registerRest/api";
 
-  addRegistration(register:Register){
-      return this.httpClient.post(this.baseUrl+"/register",register);
+  addLogin(login:Login){
+      return this.httpClient.put(this.baseUrl+"/login/"+login.userid+"/"+login.loginpwd,login);
     
     }
 }

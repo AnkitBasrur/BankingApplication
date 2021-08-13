@@ -1,0 +1,260 @@
+<!DOCTYPE html>
+      <html>
+      <head>
+          <meta charset="utf-8">
+          <meta http-equiv="X-UA-Compatible" content="IE=edge">
+          <meta name="viewport" content="width=device-width, initial-scale=1">
+          <title>The Easiest Way to Add Input Masks to Your Forms</title>
+          <link href="https://cdnjs.cloudflare.com/ajax/libs/simple-line-icons/2.4.1/css/simple-line-icons.min.css" rel="stylesheet">
+          <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css">
+          <link rel="stylesheet" href="openaccount.component.css">
+      </head>
+      <body>
+        <div class="registration-form">
+            <form #openaccountForm="ngForm" (ngSubmit)="formSubmit(openaccountForm)" novalidate>
+                <div class="form-icon">
+                    <span><i class="icon icon-user"></i></span>
+                </div>
+                <div class="text-center">
+                    <h4>Open an Account</h4><br>
+                </div>
+                <div class="form-group" class="form-control item">
+                <select name="title" >
+                  <input id="title" >
+                      <option selected="selected" value="one">Title</option>
+                      <option value="two">Mr</option>
+                      <option value="three">Ms</option>
+                      <option value="tfour">Mrs</option>
+                      </select></div>
+                <div class="form-group">
+                    <input type="text" class="form-control item" id="firstname" name="firstname" required minlength="1" placeholder="Enter First Name"  ngModel>
+                </div>
+                <div class="form-group">
+                    <input type="text" class="form-control item" id="middlename" name="middlename" required minlength="1" placeholder="Enter Middle Name"  ngModel>
+                </div>
+                <div class="form-group">
+                    <input type="text" class="form-control item" id="lastname" name="lastname" required minlength="1" placeholder="Enter Last Name"  ngModel>
+                </div>
+                <div class="form-group">
+                    <input type="text" class="form-control item" id="fathername" name="fathername" required minlength="1" placeholder="Enter Father's Name"  ngModel>
+                </div>
+                <div class="form-group">
+                    <input type="number" class="form-control item" id="mobileno" name="mobileno" required minlength="1" placeholder="Enter Mobile Number"  ngModel>
+                </div>
+                <div class="form-group">
+                    <input type="email" class="form-control item" id="emailid" name="emailid" required minlength="1" placeholder="Enter Email ID"  ngModel>
+                </div>
+                <div class="form-group">
+                    <input type="date" class="form-control item" id="dob" name="dob" required minlength="1" placeholder="Enter Date of Birth"  ngModel>
+                </div>
+                <div class="form-group">
+                    <input type="text" class="form-control item" id="aadharcard" name="aadharcard" required minlength="1" placeholder="Enter AadharCard number"  ngModel>
+                </div>
+                <div class="form-group">
+                    <input type="address" class="form-control item" id="resaddress" name="address" required minlength="1" placeholder="Enter Residential Address" ngModel>               
+               </div>
+                <div class="form-group">
+                    <input type="address"  class="form-control item" id="permaddress" name="permaddress" required minlength="1" placeholder="Enter Permanent address" ngModel> 
+                </div>
+                <div class="form-group" class="form-control item">
+                <select name="occtype" >
+                <input id="occtype" >
+                <option selected="selected" value="one">Occupation type</option>
+                <option value="two">Business</option>
+                <option value="three">Student</option>
+                <option value="four">Housewife</option>
+                <option value="five">Pensioner</option>
+                <option value="six">Professional</option>
+                <option value="seven">Service</option>
+                </select></div>
+                <div class="form-group" class="form-control item">
+                <select name="grossincome">
+                    <input id="grossincome" >
+                        <option selected="selected" value="one">Gross Annual Income</option>
+                        <option value="two">Below 100000</option>
+                        <option value="three">100000 to 500000</option>
+                        <option value="four">More than 500000</option>
+
+                        </select></div>
+
+                        <h4>Do you want a debit card?</h4>
+                        <input type="checkbox" ng-checked="all">  Opt for net banking<br>
+                        <input type="checkbox" ng-checked="all">  I agree..<br>
+
+                        <!-- <button type="reset">Reset</button> -->
+                        <div class="text-center">
+                        <br><button type="submit"[disabled]="!openaccountForm.valid" class="btn btn-outline-primary">Submit</button>
+                        </div>
+            </form>
+        </div>
+        <script type="text/javascript" src="https://code.jquery.com/jquery-3.2.1.min.js"></script>
+          <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/jquery.mask/1.14.15/jquery.mask.min.js"></script>
+          <script src="assets/js/script.js"></script>
+      </body>
+      </html>
+
+
+
+
+<!-- <form #openaccountForm="ngForm" (ngSubmit)="formSubmit(openaccountForm)" novalidate>
+    <table>
+        <div class="regbox"> -->
+        <!-- <tr>
+            <td><label for="title">Title</label></td>
+            <td><input type="text" id="title" name="title" required maxlength="3" placeholder="Enter Title" ngModel></td>
+        </tr> --> 
+        <!-- <h1>Open your account </h1>
+        <td><label for ="title">Title</label></td>
+                <td><select name="title">
+                  <input id="title" >
+                      <option selected="selected" value="one">Mr</option>
+                      <option value="two">Ms</option>
+                      <option value="three">Mrs</option>
+                      </select></td>
+        <tr>
+            <td><label for="firstname">First name</label></td>
+            <td><input type="text" id="firstname" name="firstname" required minlength="1" placeholder="Enter Firstname"  ngModel></td>
+        </tr>
+        <tr>
+            <td><label for="middlename">Middle name</label></td>
+            <td><input type="text" id="middlename" name="middlename" required minlength="1" placeholder="Enter Middlename"  ngModel></td>
+        </tr>
+        <tr>
+            <td><label for="lastname">Last name</label></td>
+            <td><input type="text" id="lastname" name="lastname" required minlength="1" placeholder="Enter Lastname"  ngModel></td>
+        </tr>
+        <tr>
+            <td><label for="fathername">Father's name</label></td>
+            <td><input type="text" id="f1name" name="name" required minlength="1" placeholder="Enter Father's name"  ngModel></td>
+        </tr>
+        <tr>
+            <td><label for="mobileno">Mobile no</label></td>
+            <td><input type="number" id="mobileno" name="mobileno" required maxlength="10" placeholder="Enter Mobile no" ngModel></td>
+        </tr>
+        <tr>
+            <td><label for="emailid">Email id</label></td>
+            <td><input type="email" id="emailid" name="emailid" required minlength="1" placeholder="Enter emailid"  ngModel></td>
+        </tr>
+        <tr>
+            <td><label for="aadharcard">Aadhar card no</label></td>
+            <td><input type="text" id="aadharcard" name="aadharcard" required maxlength="12" placeholder="Enter aadharcard no" ngModel></td><br>
+        </tr>
+
+        <tr>
+         <td><label for="dob">Date of Birth</label></td>
+            <td><input type="date" id="dob" name="dob" required  placeholder="Enter aadharcard no" ngModel></td><br>
+        </tr>
+        <tr>
+            <td><label for="resaddress">Residential Address</label></td>
+            <td><input type="address" id="resaddress" name="address" required minlength="1" placeholder="Enter residential address" ngModel></td>
+        </tr>
+        <tr>
+            <td><label for="permaddress">Permanent address</label></td>
+            <td><input type="address" id="permaddress" name="permaddress" required minlength="1" placeholder="Enter permanent address" ngModel></td>
+        </tr> -->
+        <!-- <tr>
+            <td><label for="occupationtype">Occupation Type</label></td>
+            <td><input type="text" id="occupationtype" name="occupationtype" required minlength="1" placeholder="Enter permanent address" ngModel></td>
+        </tr> -->
+            <!-- <tr>
+       
+          <td><label for ="occupationtype">Occupation type</label></td>
+         <td><select name="occtype">
+            <input id="occtype" >
+                <option selected="selected" value="one">Service</option>
+                <option value="two">Business</option>
+                <option value="three">Student</option>
+                <option value="four">Housewife</option>
+                <option value="five">Pensioner</option>
+                <option value="six">Professional</option>
+                </select></td> <br><br>
+            </tr>
+            
+         <tr>
+       
+                <td><label for ="sourceofincome">Source of income</label></td>
+                <td><select name="sourcofincome">
+                  <input id="sourceofincome" >
+                      <option selected="selected" value="one">1</option>
+                      <option value="two">2</option>
+                      <option value="three">more than 2</option>
+                      </select></td>
+                  </tr> -->
+                  <!-- <tr>
+                    <td><label for ="grossincome">Gross Income</label></td>
+                    <td><select name="grossincome">
+                      <input id="grossincome" >
+                          <option selected="selected" value="one">Below 100000</option>
+                          <option value="two">100000 to 500000</option>
+                          <option value="three">More than 500000</option>
+                          </select></td>
+                      </tr>
+                      <tr>
+                        <td>
+                            <h4>Do you want a debit card</h4><br>
+                          <td> <input type="checkbox" ng-checked="all">Opt for net banking<br>
+                            <input type="checkbox" ng-checked="all">I agree..<br> 
+                        </td>
+                    </tr>
+                      
+            <tr> --> 
+            <!-- <td><button type="reset">Reset</button></td> -->
+            <!-- <td><button type="submit"[disabled]="!openaccountForm.valid">Submit</button></td>
+        </tr>
+        </div>
+    </table> -->
+
+   
+
+      <!-- <!DOCTYPE html>
+      <html>
+      <head>
+          <meta charset="utf-8">
+          <meta http-equiv="X-UA-Compatible" content="IE=edge">
+          <meta name="viewport" content="width=device-width, initial-scale=1">
+          <title>The Easiest Way to Add Input Masks to Your Forms</title>
+          <link href="https://cdnjs.cloudflare.com/ajax/libs/simple-line-icons/2.4.1/css/simple-line-icons.min.css" rel="stylesheet">
+          <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css">
+          <link rel="stylesheet" href="openaccount.component.css">
+      </head>
+      <body>
+          <div class="registration-form">
+              <form>
+                  <div class="form-icon">
+                      <span><i class="icon icon-user"></i></span>
+                  </div>
+                  <div class="form-group">
+                      <input type="text" class="form-control item" id="username" placeholder="Username">
+                  </div>
+                  <div class="form-group">
+                      <input type="password" class="form-control item" id="password" placeholder="Password">
+                  </div>
+                  <div class="form-group">
+                      <input type="text" class="form-control item" id="email" placeholder="Email">
+                  </div>
+                  <div class="form-group">
+                      <input type="text" class="form-control item" id="phone-number" placeholder="Phone Number">
+                  </div>
+                  <div class="form-group">
+                      <input type="text" class="form-control item" id="birth-date" placeholder="Birth Date">
+                  </div>
+                  <div class="form-group">
+                      <button type="button" class="btn btn-block create-account">Create Account</button>
+                  </div>
+              </form>
+              <div class="social-media">
+                  <h5>Sign up with social media</h5>
+                  <div class="social-icons">
+                      <a href="#"><i class="icon-social-facebook" title="Facebook"></i></a>
+                      <a href="#"><i class="icon-social-google" title="Google"></i></a>
+                      <a href="#"><i class="icon-social-twitter" title="Twitter"></i></a>
+                  </div>
+              </div>
+          </div>
+          <script type="text/javascript" src="https://code.jquery.com/jquery-3.2.1.min.js"></script>
+          <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/jquery.mask/1.14.15/jquery.mask.min.js"></script>
+          <script src="assets/js/script.js"></script>
+      </body>
+      </html>
+       -->
+

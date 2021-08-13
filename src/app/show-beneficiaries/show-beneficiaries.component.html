@@ -1,0 +1,24 @@
+<p>show-beneficiaries works!</p>
+
+<div>
+    <table border="1">
+        <thead>
+            <th>account No</th>
+            <th>Beneficiary Acc no</th>
+            <th>Beneficiary Name</th>
+            <th>Nick Name</th>
+            <th>IFSC code</th>
+        </thead>
+        
+            <tr *ngFor="let b of beneficiaryDetails">
+                <td>{{b.accountNo}}</td>
+                <td>{{b.beneficiaryaccno}}</td>
+                <td>{{b.beneficiaryname}}</td>
+                <td>{{b.nickname}}</td>
+                <td>{{b.ifsccode}}</td>
+                <td> <button (click)="deleteRow(b.beneficiaryaccno)">Delete</button></td>
+            </tr>
+        
+
+    </table>
+</div>

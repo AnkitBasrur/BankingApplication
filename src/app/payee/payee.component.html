@@ -1,0 +1,39 @@
+<p>payee works!</p>
+
+<h3>Add New Beneficiary</h3>
+
+    <form #payeeForm="ngForm" (ngSubmit)="formSubmit(payeeForm)" novalidate>
+    <table>
+        <tr>
+            <td><label for="uaccno">User Account Number</label></td>
+            <td><input type="text" id="uaccno" name="userAccountNumber" required minlength="4" maxlength="4" placeholder="Enter User Account Number" [(ngModel)]="bene.accountNo"></td>
+        </tr>
+        <tr>
+            <td><label for="bname">Beneficiary Name</label></td>
+            <td><input type="text" id="bname" name="beneficiaryName" required placeholder="Enter Beneficiary Name" [(ngModel)]="bene.beneficiaryname"></td>
+        </tr>
+        <tr>
+            <td><label for="baccno">Beneficiary Account Number</label></td>
+            <td><input type="text" id="baccno" name="beneficiaryAccountNumber" required minlength="4" maxlength="4" placeholder="Enter Beneficiary Account Number" [(ngModel)]="bene.beneficiaryaccno"></td>
+        </tr>
+        <!-- <tr>
+            <td><label for="rbaccno">Re-Enter Beneficiary Account Number</label></td>
+            <td><input type="text" id="rbaccno" name="RbeneficiaryAccountNumber" required minlength="13" maxlength="13" placeholder="Re-Enter Beneficiary Account Number" ngModel></td>
+        </tr> -->
+        <tr>
+            <td><label for="bifsc">Beneficiary IFSC Code</label></td>
+            <td><input type="text" id="bifsc" name="beneficiaryIFSCcode" required placeholder="Enter IFSC Code" [(ngModel)]="bene.ifsccode"></td>
+        </tr>
+        <tr>
+            <td><label for="nickname">Nick Name</label></td>
+            <td><input type="text" id="nickname" name="beneficiaryNickName" required placeholder="Enter Nick Name" [(ngModel)]="bene.nickname"></td>
+        </tr>
+        <tr>
+            <!-- <td><button type="reset">Reset</button></td> -->
+            <td><button type="submit"[disabled]="!payeeForm.valid">Save Beneficiary</button></td>
+        </tr>
+    </table>
+
+
+
+

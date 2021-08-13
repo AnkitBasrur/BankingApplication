@@ -45,12 +45,14 @@ export class FundTransferComponent implements OnInit {
     else
       this.btnText = "Show Beneficiary"
   }
+
   selectBenef(acc_num, ifsc_code){
     this.ifsc = ifsc_code;
     this.toAccount = acc_num;
     this.showBeneficiary = false;
     this.btnText = "Show Beneficiary"
   }
+  
   formSubmit(myForm: NgForm){
     
     var dd = String(this.today.getDate()).padStart(2, '0');

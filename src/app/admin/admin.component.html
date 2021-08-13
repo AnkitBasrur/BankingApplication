@@ -1,0 +1,40 @@
+<!-- <p>admin works!</p> -->
+<h1>Admin page</h1>
+<table border="1">
+    <thead style="color:rgb(75, 75, 189);">
+        <th>Id</th>
+        <th>Title</th>
+        <th>Firstname</th>
+        <th>Middlename</th>
+        <th>Lastname</th>
+        <th>Fathername</th>
+        <th>Mobile no</th>
+        <th>Email id</th>
+        <th>Aadhar card</th>
+        <th>Residential address</th>
+        <th>Permanent address</th>
+        <th>Occupation type</th>
+        <th>Gross annual income</th>
+        
+        <!-- <th style="color:green">Approve</th>
+        <th style="color:red">Reject</th> -->
+        </thead>
+        <tr *ngFor="let a of accountDetails">
+                <td>{{a.oldid}}</td>
+                <td>{{a.user_title}}</td>
+                <td>{{a.user_firstname}}</td>
+                <td>{{a.user_middlename}}</td>
+                <td>{{a.user_lastname}}</td>
+                <td>{{a.user_fathername}}</td>
+                <td>{{a.user_mobileno}}</td>
+                <td>{{a.user_emailid}}</td>
+                <td>{{a.user_aadharcard}}</td>
+                <td>{{a.user_residentialaddr}}</td>
+                <td>{{a.user_permanentaddr}}</td>
+                <td>{{a.user_occupation_type}}</td>
+                <td>{{a.user_grossannualincome}}</td>
+            <td> <button  style="color:green" >Approve</button></td>
+            <td> <button (click)="deleteRow(a.oldid)" style="color:red">Reject</button></td>
+        </tr>
+</table>
+

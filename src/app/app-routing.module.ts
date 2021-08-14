@@ -14,16 +14,15 @@ import { PaymentStatusComponent } from './payment-status/payment-status.componen
 import { RegisterComponent } from './register/register.component';
 import { ShowBeneficiariesComponent } from './show-beneficiaries/show-beneficiaries.component';
 
-const routes: Routes = [{
-  path: 'afterPayment',
-  component: PaymentStatusComponent,
-},{
-  path: '',
-  component: DefaultComponent,
-  children:[{
+const routes: Routes = [{path:'', component:HomepageComponent},
+{
+  path: 'dashboard',component: DefaultComponent,
+  children:[
+  {
     path:'',
     component: DashboardComponent,
   },
+  {path: 'afterPayment',component: PaymentStatusComponent},
     { path: 'posts',
   component: PostsComponent
   },
@@ -36,7 +35,6 @@ const routes: Routes = [{
   {path:'beneficiaries', component: ShowBeneficiariesComponent}],
 
 },
-{path:'', component:HomepageComponent},
 {path:'login', component:LoginComponent},
 {path:'register', component:RegisterComponent},
 {path:'adminlogin', component:AdminloginComponent},

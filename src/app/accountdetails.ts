@@ -1,10 +1,10 @@
 export class Accountdetails {
 
-     accountno:string="";
+     accountNo:string="";
 	 userid:string="";
-	 accounttype:string="";
-	 accountbalance:string="";
-	 userifsccode:string="";
+	 accountType:string="";
+	 accountBalance:number=0;
+	 userIfscCode:string="";
 	 oldid:string="";
 	
 
@@ -15,6 +15,7 @@ export class Accountdetails {
 	// 	this.accountbalance = accountbalance;
 	// 	this.userifsccode = userifsccode;
 	// }
+
 
 	constructor(){}
 

@@ -13,8 +13,13 @@ export class RegisterComponent implements OnInit {
 
   constructor(private registerService:RegisterService) { this.reg=new Register()}
 
+  ngOnInit(): void {
+   
+  }
+
   formSubmit(regForm:any)
   {
+    
     this.registerService.addRegistration(this.reg).subscribe((data)=>{
       console.log("return value from REST"+data);
 
@@ -23,8 +28,6 @@ export class RegisterComponent implements OnInit {
     
   }
 
-  ngOnInit(): void {
-   
-  }
+  
 
 }

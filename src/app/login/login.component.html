@@ -1,0 +1,103 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>The Easiest Way to Add Input Masks to Your Forms</title>
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/simple-line-icons/2.4.1/css/simple-line-icons.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css">
+    <link rel="stylesheet" href="login.component.css">
+</head>
+<body>
+    <div class="registration-form">
+        <form #loginForm="ngForm" (ngSubmit)="formSubmit(loginForm)" novalidate>
+            <div class="form-icon">
+                <span><i class="icon icon-user"></i></span>
+            </div>
+            <div class="text-center">
+                <h4>Login Here</h4><br>
+            </div>
+            <div class="form-group">
+                <input type="text" class="form-control item" id="loginID" name="loginID" required minlength="1" placeholder="Enter User ID"  [(ngModel)]="log.userid">
+            </div>
+            <div class="form-group">
+                <input type="password" class="form-control item" id="password" name="password" required minlength="1" placeholder="Enter Login Password" 
+                pattern="^(?=.*[a-z])(?=.*[A-Z])(?=.*\d)(?=.*[@$!%*?&])[A-Za-z\d@$!%*?&]{8,}$" [(ngModel)]="log.loginpwd"> 
+            </div>
+            <div class="text-center">
+            <br><button type="submit"[disabled]="!loginForm.valid" class="btn btn-outline-primary">Submit</button>
+            </div>
+            <div class="col-md-7 offset-md-1" style="padding-left: 2cm;">
+                <p><i>First Time User? <a href="/register">Register</a></i></p>
+            </div>
+            <div class="col-md-7 offset-md-1" style="padding-left: 2cm;">
+                <p><i><a href="/forgotUid">Forgot User ID?</a></i></p>
+            </div>
+            <div class="col-md-7 offset-md-1" style="padding-left: 2cm;">
+                <p><i><a href="/forgotPwd">Forgot Password?</a></i></p>
+            </div>
+        
+        </form>
+    </div>
+    <script type="text/javascript" src="https://code.jquery.com/jquery-3.2.1.min.js"></script>
+      <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/jquery.mask/1.14.15/jquery.mask.min.js"></script>
+      <script src="assets/js/script.js"></script>
+  </body>
+  </html>
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+<!-- <p>login works!</p> -->
+ 
+<!-- <div class="col-md-7 offset-md-5">
+    <div class="border">
+        <div style="padding-top: 0.5cm; padding-left: 0.25cm;"><h3>Login to your Bank Account</h3></div>
+    <form #loginForm="ngForm" (ngSubmit)="formSubmit(loginForm)" novalidate style="padding-left: 2cm; padding-top: 0.5cm;">
+    <div class="form-group">
+      <label for="uid">User ID</label>
+      <input type="text" style="width: 5cm;" class="form-control" id="uid" required maxlength="7" aria-describedby="emailHelp"
+       placeholder="Enter UserID/AdminID" [(ngModel)]="log.userid" name="user">
+      <small id="emailHelp" class="form-text text-muted">We'll never share your ID with anyone else.</small>
+    </div>
+    <div class="form-group">
+      <label for="pwd">Password</label>
+      <input type="password" style="width: 5cm;" class="form-control" id="pwd" placeholder="Enter Password"
+       required minlength="8" pattern="^(?=.*[a-z])(?=.*[A-Z])(?=.*\d)(?=.*[@$!%?&])[A-Za-z\d@$!%?&]{8,}$" [(ngModel)]="log.loginpwd" name="login">
+    </div>
+     <button type="submit"[disabled]="!loginForm.valid" class="btn btn-primary">Login</button> -->
+    <!-- <button type="submit"[disabled]="!loginForm.valid" class="btn btn-primary" >Login</button>
+  </form>
+  <div style="padding-left: 2cm; padding-bottom: 00.25cm;"> 
+    
+</div>
+    <div class="col-md-7 offset-md-1" style="padding-left: 2cm;">
+        <p><i>First Time User? <a routerLink="register">Register</a></i></p>
+    </div>
+    <div class="col-md-7 offset-md-1" style="padding-left: 2cm;">
+        <p><i><a href="">Forgot User ID?</a></i></p>
+    </div>
+    <div class="col-md-7 offset-md-1" style="padding-left: 2cm;">
+        <p><i><a href="">Forgot Password?</a></i></p>
+    </div>
+        <router-outlet></router-outlet> 
+</div>
+    </div>  -->
+

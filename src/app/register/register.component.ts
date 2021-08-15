@@ -16,7 +16,7 @@ export class RegisterComponent implements OnInit {
   formSubmit(regForm:any)
   {
     this.registerService.addRegistration(this.reg).subscribe((data)=>{
-      console.log("return value from REST"+data);
+      console.log(data);
 
     })
     console.log(regForm.value)

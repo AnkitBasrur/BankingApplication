@@ -12,75 +12,79 @@
       <body>
         <div class="registration-form">
             <form #openaccountForm="ngForm" (ngSubmit)="formSubmit(openaccountForm)" novalidate>
-                <div class="form-icon">
+                <div class="form-icon" >
                     <span><i class="icon icon-user"></i></span>
                 </div>
                 <div class="text-center">
                     <h4>Open an Account</h4><br>
                 </div>
                 <div class="form-group" class="form-control item">
-                <select name="title" >
-                  <input id="title" >
-                      <option selected="selected" value="one">Title</option>
-                      <option value="two">Mr</option>
-                      <option value="three">Ms</option>
-                      <option value="tfour">Mrs</option>
-                      </select></div>
-                <div class="form-group">
-                    <input type="text" class="form-control item" id="firstname" name="firstname" required minlength="1" placeholder="Enter First Name"  ngModel>
+                    <select name="userTitle"  [(ngModel)]="openacc.userTitle">
+                        <!-- <input id="grossannualincome" name="grossannualincome" > -->
+                            <option selected="selected" value="Title">Title</option>
+                            <option value="Mr">Mr</option>
+                            <option value="Ms">Ms</option>
+                            <option value="Mrs">Mrs</option>
+    
+                            </select></div>
+                      
+                <div class="form-group" >
+                    <input type="text" class="form-control item" id="firstname" name="userFirstname" required minlength="1" placeholder="Enter First Name"  [(ngModel)]="openacc.userFirstname">
                 </div>
                 <div class="form-group">
-                    <input type="text" class="form-control item" id="middlename" name="middlename" required minlength="1" placeholder="Enter Middle Name"  ngModel>
+                    <input type="text" class="form-control item" id="middlename" name="userMiddlename" required minlength="1" placeholder="Enter Middle Name"  [(ngModel)]="openacc.userMiddlename">
                 </div>
                 <div class="form-group">
-                    <input type="text" class="form-control item" id="lastname" name="lastname" required minlength="1" placeholder="Enter Last Name"  ngModel>
+                    <input type="text" class="form-control item" id="lastname" name="userLastname" required minlength="1" placeholder="Enter Last Name"   [(ngModel)]="openacc.userLastname">
                 </div>
                 <div class="form-group">
-                    <input type="text" class="form-control item" id="fathername" name="fathername" required minlength="1" placeholder="Enter Father's Name"  ngModel>
+                    <input type="text" class="form-control item" id="fathername" name="userFathername" required minlength="1" placeholder="Enter Father's Name"   [(ngModel)]="openacc.userFathername">
                 </div>
                 <div class="form-group">
-                    <input type="number" class="form-control item" id="mobileno" name="mobileno" required minlength="1" placeholder="Enter Mobile Number"  ngModel>
+                    <input type="number" class="form-control item" id="mobileno" name="userMobileno" required minlength="1" placeholder="Enter Mobile Number"  [(ngModel)]="openacc.userMobileno">
                 </div>
                 <div class="form-group">
-                    <input type="email" class="form-control item" id="emailid" name="emailid" required minlength="1" placeholder="Enter Email ID"  ngModel>
+                    <input type="email" class="form-control item" id="emailid" name="userEmailid" required minlength="1" placeholder="Enter Email ID"  [(ngModel)]="openacc.userEmailid">
                 </div>
                 <div class="form-group">
-                    <input type="date" class="form-control item" id="dob" name="dob" required minlength="1" placeholder="Enter Date of Birth"  ngModel>
+                    <input type="date" class="form-control item" id="dob" name="userDob" required minlength="1" placeholder="Enter Date of Birth"   [(ngModel)]="openacc.userDob">
                 </div>
                 <div class="form-group">
-                    <input type="text" class="form-control item" id="aadharcard" name="aadharcard" required minlength="1" placeholder="Enter AadharCard number"  ngModel>
+                    <input type="text" class="form-control item" id="aadharcard" name="userAadharcard" required minlength="1" placeholder="Enter AadharCard number"   [(ngModel)]="openacc.userAadharcard">
                 </div>
                 <div class="form-group">
-                    <input type="address" class="form-control item" id="resaddress" name="address" required minlength="1" placeholder="Enter Residential Address" ngModel>               
+                    <input type="address" class="form-control item" id="residentialaddr" name="userResidentialaddr" required minlength="1" placeholder="Enter Residential Address"  [(ngModel)]="openacc.userResidentialaddr">               
                </div>
                 <div class="form-group">
-                    <input type="address"  class="form-control item" id="permaddress" name="permaddress" required minlength="1" placeholder="Enter Permanent address" ngModel> 
+                    <input type="address"  class="form-control item" id="permanentaddr" name="userPermanentaddr" required minlength="1" placeholder="Enter Permanent address"  [(ngModel)]="openacc.userPermanentaddr"> 
                 </div>
+               
+ 
                 <div class="form-group" class="form-control item">
-                <select name="occtype" >
-                <input id="occtype" >
-                <option selected="selected" value="one">Occupation type</option>
-                <option value="two">Business</option>
-                <option value="three">Student</option>
-                <option value="four">Housewife</option>
-                <option value="five">Pensioner</option>
-                <option value="six">Professional</option>
-                <option value="seven">Service</option>
-                </select></div>
+                    <select name="userOccupationType"  [(ngModel)]="openacc.userOccupationType">
+                        <!-- <input id="grossannualincome" name="grossannualincome" > -->
+                            <option selected="selected" value="Occupation Type">Occupation Type</option>
+                            <option value="Student">Student</option>
+                            <option value="Housewife">Housewife</option>
+                            <option value="Pensioner">Pensioner</option>
+                            <option value="Professional">Professional</option>
+                            <option value="Service">Service</option>
+                            <option value="Business">Business</option>
+                            </select></div>
                 <div class="form-group" class="form-control item">
-                <select name="grossincome">
-                    <input id="grossincome" >
-                        <option selected="selected" value="one">Gross Annual Income</option>
-                        <option value="two">Below 100000</option>
-                        <option value="three">100000 to 500000</option>
-                        <option value="four">More than 500000</option>
-
+                    <select name="userGrossannualincome"  [(ngModel)]="openacc.userGrossannualincome">
+                    <!-- <input id="grossannualincome" name="grossannualincome" > -->
+                        <option selected="selected" value="Gross Annual Income">Gross Annual Income</option>
+                        <option value="Below 100000">Below 100000</option>
+                        <option value="100000 to 500000">100000 to 500000</option>
+                        <option value="More than 500000">More than 500000</option>
+ 
                         </select></div>
-
+ 
                         <h4>Do you want a debit card?</h4>
                         <input type="checkbox" ng-checked="all">  Opt for net banking<br>
                         <input type="checkbox" ng-checked="all">  I agree..<br>
-
+ 
                         <!-- <button type="reset">Reset</button> -->
                         <div class="text-center">
                         <br><button type="submit"[disabled]="!openaccountForm.valid" class="btn btn-outline-primary">Submit</button>
@@ -92,10 +96,10 @@
           <script src="assets/js/script.js"></script>
       </body>
       </html>
-
-
-
-
+ 
+ 
+ 
+ 
 <!-- <form #openaccountForm="ngForm" (ngSubmit)="formSubmit(openaccountForm)" novalidate>
     <table>
         <div class="regbox"> -->
@@ -139,7 +143,7 @@
             <td><label for="aadharcard">Aadhar card no</label></td>
             <td><input type="text" id="aadharcard" name="aadharcard" required maxlength="12" placeholder="Enter aadharcard no" ngModel></td><br>
         </tr>
-
+ 
         <tr>
          <td><label for="dob">Date of Birth</label></td>
             <td><input type="date" id="dob" name="dob" required  placeholder="Enter aadharcard no" ngModel></td><br>
@@ -203,9 +207,9 @@
         </tr>
         </div>
     </table> -->
-
+ 
    
-
+ 
       <!-- <!DOCTYPE html>
       <html>
       <head>
@@ -257,4 +261,6 @@
       </body>
       </html>
        -->
+ 
+ 
 

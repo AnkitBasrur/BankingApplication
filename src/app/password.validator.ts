@@ -6,7 +6,5 @@ const confirmPassword= control.get('confirmPassword');
 if (newPassword?.pristine || confirmPassword?.pristine){
     return null;
 }
-return newPassword && confirmPassword && newPassword.value != confirmPassword.value ?
-{'misMatch':true}:
-null;
+return newPassword && confirmPassword && newPassword.value != confirmPassword.value ?{'misMatch':true}:null;
 }

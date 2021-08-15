@@ -38,7 +38,7 @@
   
     <ng-container matColumnDef="Closing Balance">
       <th mat-header-cell *matHeaderCellDef> Closing Balance</th>
-      <td mat-cell *matCellDef="let element; let index = index"> {{index == 0? currentBalance: element.action==="Debit"? currentBalance-element.amount : element.amount + currentBalance}} {{index}}</td>
+      <td mat-cell *matCellDef="let element; let index = index"> {{index == 0? currentBalance: element.closingBalance}}</td>
     </ng-container>
 
     <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr> 

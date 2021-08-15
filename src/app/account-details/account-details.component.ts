@@ -13,7 +13,7 @@ export class AccountDetailsComponent implements OnInit {
   constructor(private accountDetailsService:AccountDetailsService) { }
 
   ngOnInit(): void {
-    this.accountDetailsService.getAccountDetails("1028392836").subscribe((data)=>{
+    this.accountDetailsService.getAccountDetails(localStorage.getItem("accountNo")).subscribe((data)=>{
       this.accdetail=data as AccountDetails;
       console.log(this.accdetail);
     })

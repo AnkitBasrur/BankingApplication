@@ -11,6 +11,6 @@ export class AccountDetailsService {
   baseUrl:string="http://localhost:9000/accountdetailsRest/api";
   
   getAccountDetails(userId){
-    return this.httpClient.get(this.baseUrl+"/accountdetails/1028392836");
+    return this.httpClient.get(`${this.baseUrl}/accountdetails/${userId}`);
   }
 }

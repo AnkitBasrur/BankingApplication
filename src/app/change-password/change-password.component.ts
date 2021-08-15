@@ -11,6 +11,8 @@ import { RegisterService } from '../register.service';
 export class ChangePasswordComponent implements OnInit {
   changePassword!: FormGroup;
   password: string="";
+  oldPassword:string="";
+
   constructor(private registerService :RegisterService) { }
 
   ngOnInit(): void {
@@ -20,7 +22,7 @@ export class ChangePasswordComponent implements OnInit {
   }
   formSubmit(myForm: any){
     console.log(myForm.value, this.changePassword.value, this.password)
-    this.registerService.changePassword(localStorage.getItem("accountNo"), "Password@123", this.password).subscribe((data) => console.log(data));
+    this.registerService.changePassword(localStorage.getItem("accountNo"), this.oldPassword, this.password).subscribe((data) => console.log(data));
   }
   onLogin(){
 

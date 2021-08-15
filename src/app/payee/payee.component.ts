@@ -8,7 +8,7 @@ import { PayeeService } from '../payee.service';
   styleUrls: ['./payee.component.css']
 })
 export class PayeeComponent implements OnInit {
-
+  fromAccount = localStorage.getItem('accountNo')
   bene:Payee;
 
   constructor(private beneservice:PayeeService) { 
@@ -21,12 +21,11 @@ export class PayeeComponent implements OnInit {
 
   formSubmit(payeeForm:any)
   {
-    alert("It worked")
-    this.beneservice.addNewBeneficiary(this.bene).subscribe(
-      (data)=>{
-        console.log("Return Value from REST"+data);
-      }
-    )
+    this.bene.accountNo = this.fromAccount
+    this.bene.beneficiaryId = Math.floor(Math.random() * 1000000000)+"";
+    this.beneservice.addNewBeneficiary(this.bene).subscribe((data)=>{
+        console.log(data);
+    })
     console.log(payeeForm.value)
   }
 

@@ -25,7 +25,7 @@ const routes: Routes = [{path:'', component:HomepageComponent},
   path: 'dashboard',component: DefaultComponent,
   children:[
   {
-    path:'',
+    path:'child',
     component: DashboardComponent,
   },
   {path: 'afterPayment',component: PaymentStatusComponent},
@@ -39,7 +39,7 @@ const routes: Routes = [{path:'', component:HomepageComponent},
   component: ChangePasswordComponent
   },
   {path:'beneficiaries', component: ShowBeneficiariesComponent},
-  {path:'accountSummary', component: AccountSummaryComponent},
+  {path:'', component: AccountSummaryComponent},
   {path:'accountDetails', component: AccountDetailsComponent},
   {path:'payee', component: PayeeComponent},
   {path:'changePassword', component:ChangePasswordComponent},

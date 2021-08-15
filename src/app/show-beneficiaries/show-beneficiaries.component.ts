@@ -16,7 +16,6 @@ export class ShowBeneficiariesComponent implements OnInit {
   beneficiaryDetails:any;
   
   ngOnInit(): void {
-    console.log("hi")
     this.beneficiaryService.getAllBeneficiaries(localStorage.getItem("accountNo")).subscribe((data)=>{
 
       console.log(data);

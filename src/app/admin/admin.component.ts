@@ -30,7 +30,7 @@ export class AdminComponent implements OnInit {
 
   approveAccount(userId){
     this.accountService.approveAccount(userId).subscribe((data)=>{
-      console.log(data);
+      this.fetchNewData()
     })
   }
 }

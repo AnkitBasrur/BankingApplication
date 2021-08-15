@@ -22,6 +22,7 @@ export class AccountSummaryComponent implements OnInit {
  
  ngOnInit(): void {
     this.accountDetailsService.getAccountDetails(this.accountNo).subscribe((data:any)=>{
+        console.log(data)
         this.lastName = data.accountoldid.userLastname;
         this.accdetail = data as AccountDetails;
         this.ifsc = this.accdetail.userIfscCode

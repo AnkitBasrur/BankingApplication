@@ -9,7 +9,6 @@ export class RegisterService {
 
   constructor(private httpClient:HttpClient) { }
 
-  //for registration page
   baseUrl:string="http://localhost:9000//registerRest/api";
 
   addRegistration(register:Register){

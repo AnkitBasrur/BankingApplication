@@ -12,6 +12,7 @@
       <body>
         <div class="registration-form">
             <form  #regForm="ngForm" (ngSubmit)="formSubmit(regForm)" novalidate>
+                <a href="#" class="badge badge-primary" style="padding:10px;font-weight:bold;">Back to Home</a>
                 <div class="form-icon">
                     <span><i class="icon icon-user"></i></span>
                 </div>
@@ -40,7 +41,7 @@
                     <input type="password" class="form-control item" id="ctpwd" name="ctpwd" required minlength="1" placeholder="Confirm Transaction Password"  
                     pattern="^(?=.*[a-z])(?=.*[A-Z])(?=.*\d)(?=.*[@$!%*?&])[A-Za-z\d@$!%*?&]{8,}$" ngModel >
                 </div>
-
+                <p *ngIf="showMsg" [style.color]="classExpression" class="mat-h3 error-text">{{confirmationMsg}}</p>
                 <div class="text-center">
                     <br><button type="submit"[disabled]="!regForm.valid" class="btn btn-outline-primary">Submit</button>
                     </div>

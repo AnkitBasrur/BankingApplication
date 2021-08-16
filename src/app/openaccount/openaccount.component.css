@@ -112,10 +112,18 @@ h2{
     border-radius:20px;
     font-weight: 550;
 } */
-body{
-    background-color: #dee9ff;
+body,html{
+    /* background-color: #dee9ff; */
+    background-image: url(https://wallpaperaccess.com/full/1453919.jpg);
+    background-repeat: no-repeat;
+    background-size: cover;
+    opacity: 0.9;
+    position: absolute;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: auto;
 }
-
 .registration-form{
 	padding: 50px 0;
 }
@@ -125,8 +133,7 @@ body{
     max-width: 600px;
     margin: auto;
     padding: 50px 70px;
-    border-top-left-radius: 30px;
-    border-top-right-radius: 30px;
+    border-radius: 30px;
     box-shadow: 0px 2px 10px rgba(0, 0, 0, 0.075);
 }
 
@@ -167,8 +174,7 @@ body{
     margin: auto;
     padding: 35px 0;
     text-align: center;
-    border-bottom-left-radius: 30px;
-    border-bottom-right-radius: 30px;
+    border-radius: 30px;
     color: #9fadca;
     border-top: 1px solid #dee9ff;
     box-shadow: 0px 2px 10px rgba(0, 0, 0, 0.075);

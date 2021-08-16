@@ -16,21 +16,21 @@ export class ShowBeneficiariesComponent implements OnInit {
   beneficiaryDetails:any;
   
   ngOnInit(): void {
+    this.fetchNewData();
+  }
+
+  deleteRow(beneficiaryaccno:any)
+  {
+    this.beneficiaryService.deleteBeneficiary(beneficiaryaccno).subscribe((data) => this.fetchNewData() )   
+  }
+
+  fetchNewData(){
     this.beneficiaryService.getAllBeneficiaries(localStorage.getItem("accountNo")).subscribe((data)=>{
 
       console.log(data);
       this.beneficiaryDetails=data;
       console.log(this.beneficiaryDetails);
     })
-  }
-
-  deleteRow(beneficiaryaccno:any)
-  {
-    this.beneficiaryService.deleteBeneficiary(beneficiaryaccno).subscribe(
-      (data)=> {console.log(data)}
-    )
-    this.router.navigate(['beneficiaries']);
-   
   }
 
 }

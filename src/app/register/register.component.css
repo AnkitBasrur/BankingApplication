@@ -1,5 +1,14 @@
-body{
-    background-color: #dee9ff;
+body,html{
+    /* background-color: #dee9ff; */
+    background-image: url(https://www.bcblbd.com/assets/images/internet_banking_banner.png);
+    background-repeat: no-repeat;
+    background-size: cover;
+    opacity: 0.9;
+    position: absolute;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: auto
 }
 
 .registration-form{
@@ -11,8 +20,7 @@ body{
     max-width: 600px;
     margin: auto;
     padding: 50px 70px;
-    border-top-left-radius: 30px;
-    border-top-right-radius: 30px;
+    border-radius: 30px;
     box-shadow: 0px 2px 10px rgba(0, 0, 0, 0.075);
 }
 

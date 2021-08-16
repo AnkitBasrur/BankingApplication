@@ -25,6 +25,8 @@ export class FundTransferComponent implements OnInit {
   today: any = new Date();
   showBeneficiary: boolean = false;
   btnText: string = "Select Beneficiary"
+  errorMsg: string = "";
+  showError: boolean = false;
 
   navigationExtras: NavigationExtras;
 
@@ -59,7 +61,12 @@ export class FundTransferComponent implements OnInit {
     var mm = String(this.today.getMonth() + 1).padStart(2, '0'); 
     var yyyy = this.today.getFullYear();
     this.today = dd + '/' + mm + '/' + yyyy;
-
+    // if(this.toAccount===this.fromAccount){
+    //   setTimeout(
+    //     () => this.errorMsg("Cannot pay to the same account"), 
+    //     3000
+    //   );
+    // }
     this.transaction = new Transaction(this.fromAccount, myForm.value.amount, myForm.value.toAccount, myForm.value.ifsc, uuidv4(), myForm.value.trans_type, myForm.value.remarks, this.today, "Debit")
     this.paymentService.pay(this.transaction, uuidv4()).subscribe(data => {
       this.navigationExtras = {
@@ -79,6 +86,13 @@ export class FundTransferComponent implements OnInit {
       this.router.navigate(['/dashboard/afterPayment'], this.navigationExtras)
     }
     )
+  }
+
+  reset(){
+    this.ifsc = '';
+    this.toAccount = '';
+    this.remarks = '';
+    this.amount = 0
   }
 
 }

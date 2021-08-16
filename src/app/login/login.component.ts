@@ -11,6 +11,7 @@ import { LoginService } from '../login.service';
 export class LoginComponent implements OnInit {
   log:Login
   errorMsg: string
+  showError: boolean = false
 
   constructor(private loginService:LoginService, private router: Router) {this.log=new Login() }
 
@@ -23,9 +24,10 @@ export class LoginComponent implements OnInit {
     console.log(loginForm.value.loginID, loginForm.value.password)
     this.loginService.addLogin(loginForm.value.loginID, loginForm.value.password).subscribe((data: any)=> {
       console.log(data)
-      console.log("output")
-      if(data==null)
-        this.errorMsg = "Incorrect AdminID or Password!";
+      if(data==null){
+        this.showError = true
+        this.errorMsg = "Incorrect userID or Password!";
+      }
       else{
         console.log(data);
         localStorage.setItem("userId", data.userid);

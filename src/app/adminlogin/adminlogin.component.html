@@ -12,6 +12,7 @@
 <body>
     <div class="registration-form">
         <form #adminloginForm="ngForm" (ngSubmit)="formSubmit(adminloginForm)" novalidate>
+            <a href="#" class="badge badge-primary" style="padding:10px;font-weight:bold;">Back to Home</a>
             <div class="form-icon">
                 <span><i class="icon icon-user"></i></span>
             </div>
@@ -25,6 +26,7 @@
                 <input type="password" class="form-control item" id="password" name="password" required minlength="1" placeholder="Enter Admin Password" 
                 pattern="^(?=.*[a-z])(?=.*[A-Z])(?=.*\d)(?=.*[@$!%*?&])[A-Za-z\d@$!%*?&]{8,}$" [(ngModel)]="adlog.adminPwd"> 
             </div>
+            <p *ngIf="showError" class="mat-h3 error-text">{{errorMsg}}</p>
             <div class="text-center">
             <br><button type="submit"[disabled]="!adminloginForm.valid" class="btn btn-outline-primary">Submit</button>
             </div>

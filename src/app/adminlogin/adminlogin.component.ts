@@ -12,6 +12,7 @@ export class AdminloginComponent implements OnInit {
 
   adlog:Adminlogin
   errorMsg: string
+  showError: boolean = false;
 
   constructor(private adminloginService:AdminloginService, private router: Router) {this.adlog=new Adminlogin }
  
@@ -26,8 +27,10 @@ export class AdminloginComponent implements OnInit {
         localStorage.setItem("adminId", "402");
         this.router.navigate(['/admin'])
       }
-      else
-        this.errorMsg = "Incorrect AdminID or Password!";
+      else{
+          this.showError = true
+          this.errorMsg = "Incorrect adminID or Password!";
+      }
     })
   }
 

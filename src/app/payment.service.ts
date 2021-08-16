@@ -23,7 +23,7 @@ export class PaymentService {
   }
 
   deleteBeneficiary(user_acc_no: string){
-    return this.httpClient.get(`${this.baseURL}/beneficiaries/${user_acc_no}`)
+    return this.httpClient.delete(`${this.baseURL}/deleteBeneficiaries/${user_acc_no}`)
   }
 
   requestOTP(user_acc_no: string){

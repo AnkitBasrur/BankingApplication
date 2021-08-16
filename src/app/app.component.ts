@@ -22,9 +22,12 @@ export class AppComponent {
   
   title = 'dashboard';
   ngOnInit(): void {
-    this.bnIdle.startWatching(4000).subscribe((isTimedOut: boolean) => {
+    this.bnIdle.startWatching(600).subscribe((isTimedOut: boolean) => {
       if (isTimedOut) {
         console.log('session expired');
+        this.bnIdle.stopTimer();
+        localStorage.clear();
+        window.location.href = 'http://localhost:4200/';
       }
     });
   }

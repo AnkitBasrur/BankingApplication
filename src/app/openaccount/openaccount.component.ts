@@ -9,7 +9,10 @@ import { v4 as uuidv4 } from 'uuid';
 })
 export class OpenaccountComponent implements OnInit {
   openacc:Openaccount;
-  
+  confirmationMsg:string = 'Your request for account creation has been sent for approval';
+  classExpression = "green"
+  showMsg: boolean = false;
+
   constructor(private openaccountService:OpenaccountService) {
     this.openacc=new Openaccount();
     }
@@ -28,8 +31,16 @@ export class OpenaccountComponent implements OnInit {
     console.log(openaccountForm.value)
     openaccountForm.value.oldid = Math.floor(100000 + Math.random() * 900000);
     this.openaccountService.addNewAccount(openaccountForm.value)
-    .subscribe((data)=>{
-      console.log(data);
+    .subscribe((data: any)=>{
+      if(data.oldid!=null){
+        this.classExpression = "green";
+        this.confirmationMsg = 'Your request for account creation has been sent for approval';
+      }
+      else{
+        this.classExpression = "red";
+        this.confirmationMsg = 'Account Creation Failed';
+      }
+      this.showMsg = true;
       this.openacc=new Openaccount()
    
   })

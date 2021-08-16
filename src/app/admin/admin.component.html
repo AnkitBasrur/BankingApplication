@@ -15,9 +15,9 @@
         <th>Permanent address</th>
         <th>Occupation type</th>
         <th>Gross annual income</th>
+        <th>Approve</th>
+        <th>Reject</th>
         
-        <!-- <th style="color:green">Approve</th>
-        <th style="color:red">Reject</th> -->
         </thead>
         <tr *ngFor="let a of accountDetails">
                 <td>{{a.oldid}}</td>
@@ -33,8 +33,8 @@
                 <td>{{a.userPermanentaddr}}</td>
                 <td>{{a.userOccupationType}}</td>
                 <td>{{a.userGrossannualincome}}</td>
-            <td> <button  style="color:green" (click)="approveAccount(a.oldid)">Approve</button></td>
-            <td> <button (click)="deleteRow(a.oldid)" style="color:red">Reject</button></td>
+            <td> <button  style="color:green; display: inline;" (click)="approveAccount(a.oldid)">Approve</button></td>
+            <td><button (click)="deleteRow(a.oldid)" style="color:red; display: inline;">Reject</button></td>
         </tr>
 </table>
 

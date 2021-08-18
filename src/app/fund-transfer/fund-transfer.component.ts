@@ -15,7 +15,7 @@ export class FundTransferComponent implements OnInit {
 
   fromAccount: string = localStorage.getItem("accountNo");
   beneficiaries: any;
-  otp: any;
+  otp: string;
   toAccount: any;
   amount: number;
   remarks: string;
@@ -27,6 +27,11 @@ export class FundTransferComponent implements OnInit {
   btnText: string = "Select Beneficiary"
   errorMsg: string = "";
   showError: boolean = false;
+  enteredOtp: string = '';
+  isOtpVerified: boolean = false;
+  showOtp: boolean = false;
+  interval :any;
+  time: 0;
 
   navigationExtras: NavigationExtras;
 
@@ -37,7 +42,7 @@ export class FundTransferComponent implements OnInit {
   }
 
   requestOTP(){
-    this.paymentService.requestOTP("201").subscribe(data => this.otp = data);
+    this.paymentService.requestOTP(localStorage.getItem("accountNo"), "Enter OTP to Authenticate Transaction").subscribe((data:string) => this.otp = data);
   }
 
   setBeneficiary(){
@@ -56,36 +61,38 @@ export class FundTransferComponent implements OnInit {
   }
   
   formSubmit(myForm: NgForm){
-    
-     var dd = String(this.today.getDate()).padStart(2, '0');
-    var mm = String(this.today.getMonth() + 1).padStart(2, '0'); 
-    var yyyy = this.today.getFullYear();
-    this.today = dd + '/' + mm + '/' + yyyy;
-    // if(this.toAccount===this.fromAccount){
-    //   setTimeout(
-    //     () => this.errorMsg("Cannot pay to the same account"), 
-    //     3000
-    //   );
-    // }
-    this.transaction = new Transaction(this.fromAccount, myForm.value.amount, myForm.value.toAccount, myForm.value.ifsc, uuidv4(), myForm.value.trans_type, myForm.value.remarks, this.today, "Debit")
-    this.paymentService.pay(this.transaction, uuidv4()).subscribe(data => {
-      this.navigationExtras = {
-        state: {
-          data,
-          referenceID: this.transaction.transactionId,
-          mode: this.transaction.transactionType,
-          paidToAccount: this.toAccount,
-          amount: this.amount,
-          on: this.today,
-          remarks: this.remarks,
-          fromAccount: this.fromAccount
-        }
-      };
-      this.today = new Date(); 
-      console.log(this.navigationExtras)
-      this.router.navigate(['/dashboard/afterPayment'], this.navigationExtras)
+    if(this.otp==this.enteredOtp)
+        this.pay(myForm);
+    else{
+      this.showOtp = true;
+      this.requestOTP()
     }
-    )
+  }
+
+  pay(myForm){
+      var dd = String(this.today.getDate()).padStart(2, '0');
+      var mm = String(this.today.getMonth() + 1).padStart(2, '0'); 
+      var yyyy = this.today.getFullYear();
+      this.today = dd + '/' + mm + '/' + yyyy;
+
+      this.transaction = new Transaction(this.fromAccount, myForm.value.amount, myForm.value.toAccount, myForm.value.ifsc, uuidv4(), myForm.value.trans_type, myForm.value.remarks, this.today, "Debit")
+      this.paymentService.pay(this.transaction, uuidv4()).subscribe(data => {
+        this.navigationExtras = {
+          state: {
+            data,
+            referenceID: this.transaction.transactionId,
+            mode: this.transaction.transactionType,
+            paidToAccount: this.toAccount,
+            amount: this.amount,
+            on: this.today,
+            remarks: this.remarks,
+            fromAccount: this.fromAccount
+          }
+        };
+        this.today = new Date(); 
+        console.log(this.navigationExtras)
+        this.router.navigate(['/dashboard/afterPayment'], this.navigationExtras)
+      })
   }
 
   reset(){

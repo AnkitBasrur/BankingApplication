@@ -19,15 +19,13 @@ export class ShowBeneficiariesComponent implements OnInit {
     this.fetchNewData();
   }
 
-  deleteRow(beneficiaryaccno:any)
+  deleteRow(beneficiaryId:any)
   {
-    this.beneficiaryService.deleteBeneficiary(beneficiaryaccno).subscribe((data) => this.fetchNewData() )   
+    this.beneficiaryService.deleteBeneficiary(beneficiaryId).subscribe((data) => this.fetchNewData() )   
   }
 
   fetchNewData(){
     this.beneficiaryService.getAllBeneficiaries(localStorage.getItem("accountNo")).subscribe((data)=>{
-
-      console.log(data);
       this.beneficiaryDetails=data;
       console.log(this.beneficiaryDetails);
     })

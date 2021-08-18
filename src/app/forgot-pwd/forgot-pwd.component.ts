@@ -32,20 +32,23 @@ export class ForgotPwdComponent implements OnInit {
 
   constructor(private paymentService: PaymentService) { }
 
+  message:string="";
+  showMessage:boolean = false;
+
   ngOnInit(): void {
   }
 
   accountNumber() {
-    // if(this.accNumber.length==10)
-    //   this.allowRequest = false;
-    // else
-    //   this.allowRequest = true;
+    if(this.accNumber.length>7)
+      this.allowRequest = false;
+    else
+      this.allowRequest = true;
   }
   requestOTP(){
     this.allowRequest = true
     this.time = 10
     this.requestedOTP = true;
-    this.paymentService.requestOTP(this.accNumber).subscribe(otp => {
+    this.paymentService.requestOTP(this.accNumber, "Request for Password Change").subscribe(otp => {
       this.otp = otp
       console.log(otp)
     });
@@ -62,7 +65,16 @@ export class ForgotPwdComponent implements OnInit {
     this.hasSubmitted = true;
     console.log(this.otp, this.inputOtp)
     if(this.otpVerified){
-      this.paymentService.forgotPassword(this.accNumber, this.password).subscribe(data => console.log(data))
+      this.paymentService.forgotPassword(this.accNumber, this.password).subscribe(data => {
+        if(data==true){
+          this.message = "Password Changed"
+          this.showMessage = true;
+        }
+        else{
+          this.message = "Cannot change"
+          this.showMessage = true;
+        }
+      })
     }
     if(this.otp==this.inputOtp) 
       this.otpVerified = true

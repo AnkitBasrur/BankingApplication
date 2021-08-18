@@ -22,18 +22,18 @@
             Enter New Password:
             <mat-form-field appearance="fill">
                 <mat-label>Enter New Password:</mat-label>
-                <input matInput (ngModelChange)="passwordChange()" [(ngModel)]="password">
+                <input type="password" matInput (ngModelChange)="passwordChange()" [(ngModel)]="password">
             </mat-form-field><br />
             Confirm New Password:
             <mat-form-field appearance="fill">
                 <mat-label>Confirm New Password:</mat-label>
-                <input matInput (ngModelChange)="passwordChange()" [(ngModel)]="confirmPassword">
+                <input type="password" matInput (ngModelChange)="passwordChange()" [(ngModel)]="confirmPassword">
             </mat-form-field><br />
-            <p *ngIf="notMatched" class="mat-h3 otp-text">Password does not match</p>
         </div>
         <div *ngIf="!otpVerified && hasSubmitted">
             <p class="mat-h3 otp-text">Incorrect OTP</p>
         </div>
+        <p *ngIf="showMessage" class="mat-h3 otp-text">{{message}}</p>
         <button class="back-btn" mat-raised-button color="primary">Back</button>
         <button  mat-raised-button color="primary" (click)="submitOtp()">Proceed</button>
     </div>

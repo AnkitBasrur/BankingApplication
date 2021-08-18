@@ -26,8 +26,8 @@ export class PaymentService {
     return this.httpClient.delete(`${this.baseURL}/deleteBeneficiaries/${user_acc_no}`)
   }
 
-  requestOTP(user_acc_no: string){
-    return this.httpClient.get(`${this.baseURL}/requestOTP/${user_acc_no}`)
+  requestOTP(user_acc_no: string, message: string){
+    return this.httpClient.get(`${this.baseURL}/requestOTP/${user_acc_no}/${message}`)
   }
 
   pay(transaction: Transaction, transId: string){
@@ -36,6 +36,10 @@ export class PaymentService {
 
   forgotPassword(user_acc_no: string, password: string){
     return this.httpClient.put(`http://localhost:9000/registerRest/api/forgotPassword/${user_acc_no}/${password}`, user_acc_no)
+  }
+
+  forgotUID(user_acc_no: string){
+    return this.httpClient.put(`http://localhost:9000/registerRest/api/forgotUid/${user_acc_no}`, user_acc_no)
   }
 
   getAccountStatement(user_acc_no: string){
